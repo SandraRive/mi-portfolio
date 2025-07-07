@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>App de Tareas | Sandra Rivera</title>
+  <link rel="stylesheet" href="Estilos.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="description" content="Proyecto de App de Tareas desarrollado por Sandra Rivera." />
+  <meta property="og:title" content="App de Tareas | Sandra Rivera" />
+  <meta property="og:description" content="Aplicación móvil hecha con Flutter para gestionar tareas diarias." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tusitio.com/app-tareas" />
+  <script defer src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+
+  <!-- Lightbox CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+  <!-- Lightbox JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer></script>
+</head>
+<body>
+  <!-- Loader animado -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Cargando proyecto...</p>
+  </div>
+
+  <!-- Mensaje de bienvenida -->
+  <div id="bienvenida" class="oculto" aria-live="polite">
+    <h2>¡Bienvenido a mi proyecto App De Tareas! 📋</h2>
+  </div>
+
+  <header>
+    <div class="container">
+      <h1>App de Tareas</h1>
+      <p>Proyecto desarrollado con Flutter y Dart</p>
+
+      <div class="botones-header">
+        <button id="toggle-dark" aria-label="Activar modo oscuro">🌙</button>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">☰</button>
+      </div>
+
+      <nav id="nav">
+        <a href="Estructura.html">← Volver al Portfolio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <div class="dev-container">
+    <div id="lottie-animation" class="animation"></div>
+    <h2>🛠️ Esta sección está en desarrollo</h2>
+    <p>Estoy trabajando en ello. ¡Vuelve pronto!</p>
+    </div>
+
+
+  </main>
+
+  <footer>
+    <p>© 2025 Sandra Rivera</p>
+  </footer>
+
+  <script>
+    // Inicializar EmailJS con tu USER_ID
+    emailjs.init("TU_USER_ID");
+
+    // Solo el listener para el envío, el resto está en script.js
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      emailjs.sendForm("TU_SERVICE_ID", "TU_TEMPLATE_ID", this).then(
+        () => {
+          alert("Mensaje enviado correctamente. ¡Gracias!");
+          this.reset();
+        },
+        (error) => {
+          alert("Hubo un error al enviar el mensaje. Intenta nuevamente.");
+          console.error(error);
+        }
+      );
+    });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.0/lottie.min.js"></script>
+    <script>
+    lottie.loadAnimation({
+        container: document.getElementById('lottie-animation'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://assets10.lottiefiles.com/packages/lf20_qp1q7mct.json' // ¡Animación funcionando!
+    });
+    </script>
+
+</body>
+</html>
